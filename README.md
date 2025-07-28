@@ -53,16 +53,16 @@ nn = LLayerNeuralNetwork()
 
 # Fit the model
 parameters, costs = nn.L_layer_model(
-    X_train, Y_train,
-    layers_dims=[X_train.shape[0], 10, 5, 1],
+    X_train_flatten, Y_train,
+    layers_dims=[X_train_flatten.shape[0], 10, 5, 1],
     learning_rate=0.0075,
     num_iterations=3000,
     print_cost=True
 )
 
 # Predict
-pred_train = nn.predict(X_train, parameters)
-pred_test = nn.predict(X_test, parameters)
+pred_train = nn.predict(X_train_flatten, parameters)
+pred_test = nn.predict(X_test_flatten, parameters)
 
 # Evaluate
 train_acc = nn.accuracy(pred_train, Y_train)
